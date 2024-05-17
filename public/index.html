@@ -9,6 +9,22 @@
 </head>
 <body>
 
+    <form action="/db2.json" method="GET" data-fetch>
+   
+        <label for="hey">Errors will show
+            <input type="text" name="hey" id="hey" required>
+            <div data-fetch-errors="hey"></div>
+        </label>
+
+        <label for="world">Errors will show 2
+            <input type="text" name="world" id="world" required>
+            <div data-fetch-errors="world"></div>
+        </label>
+
+        <button>Submit</button>
+        
+    </form>
+
     <!-- <form action="http://localhost:3002/test/get" method="get"
           data-fetch
     >

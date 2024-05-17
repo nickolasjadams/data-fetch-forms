@@ -162,6 +162,7 @@ class FetchDataForms {
             .then(async response => {
                 let responseData;
                 if (response.ok) {
+                    console.log("OK")
                     responseData = await response.json();
                     form.reset();
                     document.querySelectorAll("[data-fetch-errors]").forEach(element => {
@@ -172,6 +173,23 @@ class FetchDataForms {
                         let id = form.id.replace(/([a-z])([A-Z])/g, "$1-$2").replace(/[\s_]+/g, '-').toLowerCase();
                         form.dispatchEvent(new CustomEvent(id + "-submit", { detail: responseData }));
                     }
+
+                    let errors = responseData.errors || responseData.responseJSON?.errors;
+                    form.querySelectorAll("[data-fetch-errors]").forEach(errorElement => {
+                        errorElement.innerHTML = "";
+                    });
+                    if (errors) {
+                        Object.entries(errors).forEach(([key, value]) => {
+                            let messages = value['messages'];
+                            let errorElement = form.querySelector(`[data-fetch-errors="${key}"]`);
+                            if (errorElement) {
+                                messages.forEach(message => {
+                                    errorElement.insertAdjacentHTML("afterbegin", `<div>${message}</div>`);
+                                });
+                            }
+                        });
+                    }
+                    if (typeof _this.onFail === "function") _this.onFail(responseData);
                 } else {
                     responseData = await response.json();
                     let errors = responseData.errors || responseData.responseJSON?.errors;
@@ -179,6 +197,7 @@ class FetchDataForms {
                         errorElement.innerHTML = "";
                     });
                     if (errors) {
+                        console.log("dude");
                         Object.entries(errors).forEach(([key, value]) => {
                             let messages = value['messages'];
                             let errorElement = form.querySelector(`[data-fetch-errors="${key}"]`);
