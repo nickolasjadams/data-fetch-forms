@@ -32,18 +32,14 @@ Just add the `data-fetch` attribute to any form you'd like to convert.
 With NPM
 
 ```markdown
-npm install @stegopop/snap-ajax-forms
+npm install @stegopop/data-fetch-forms
 ```
 
 With a CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@stegopop/snap-ajax-forms"></script>
+<script src="https://cdn.jsdelivr.net/npm/@stegopop/data-fetch-forms"></script>
 ```
-
-## Browser Support
-
-This project is transpiled to support back to IE11.
 
 ## Options
 
