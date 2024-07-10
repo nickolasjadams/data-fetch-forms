@@ -53,7 +53,7 @@ You may modify this with a css style selector in the options object.
 
 ```js
 new FetchDataForms({
-    select: "form.snap"
+    select: "form.fetch"
 });
 ```
 
@@ -127,12 +127,12 @@ Whatever casing you use for your form id will be converted to kebab-casing for t
 *Example: `<form id="testForm">` requires listening like this `addEventListener("test-form-submit", function() { ... })`*
 
 ```html
-<form id="snap-example" action="/url" method="POST" data-fetch>
+<form id="fetch-example" action="/url" method="POST" data-fetch>
     ...
 </form>
 
 <script>
-    document.querySelector("#snap-example").addEventListener("snap-example-submit", function(data) {
+    document.querySelector("#fetch-example").addEventListener("fetch-example-submit", function(data) {
         console.log("Recieved an event");
     });
 </script>
