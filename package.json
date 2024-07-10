@@ -26,12 +26,20 @@
     "front-end"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/node": "^7.23.9",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.24.5",
+    "@swc/cli": "^0.3.12",
+    "@swc/core": "^1.5.24",
+    "browserslist": "^4.23.0",
     "http-server": "^14.1.1",
     "json-server": "^0.17.3",
-    "server": "^1.0.38",
+    "server": "^1.0.38"
+  },
+  "dependencies": {
+    "tty": "^1.0.1",
     "uglify-js": "^3.17.4"
   }
 }

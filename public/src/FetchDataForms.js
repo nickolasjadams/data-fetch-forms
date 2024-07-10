@@ -57,7 +57,7 @@ class FetchDataForms {
                 let form, data, submitter;
                 [form, data, submitter] = _this.prepFormData(this, e);
 
-                console.log(data);
+                // console.log(data);
 
                 if (form.dataset['fetchRecaptcha'] === '') {
                     if (typeof window['grecaptcha'] === "undefined") {
@@ -117,7 +117,7 @@ class FetchDataForms {
 
             // arrays
             if (Array.isArray(value)) {
-                console.log("An array was submitted with this request.")
+                // console.log("An array was submitted with this request.")
                 value.forEach(item => {
                     rData.append(key, item);
                     // console.log(item);
@@ -135,7 +135,7 @@ class FetchDataForms {
 
     sendXhrRequest(form, data, submitter) {
         let _this = this;
-        console.table(data);
+        // console.table(data);
 
         let fetchOptions = {
             method: form.method
@@ -162,7 +162,7 @@ class FetchDataForms {
             .then(async response => {
                 let responseData;
                 if (response.ok) {
-                    console.log("OK")
+                    // console.log("OK")
                     responseData = await response.json();
                     form.reset();
                     document.querySelectorAll("[data-fetch-errors]").forEach(element => {
@@ -197,7 +197,6 @@ class FetchDataForms {
                         errorElement.innerHTML = "";
                     });
                     if (errors) {
-                        console.log("dude");
                         Object.entries(errors).forEach(([key, value]) => {
                             let messages = value['messages'];
                             let errorElement = form.querySelector(`[data-fetch-errors="${key}"]`);
@@ -213,7 +212,7 @@ class FetchDataForms {
                 return responseData;
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (typeof _this.onAlways === "function") _this.onAlways(data);
             })
             .catch(error => {

@@ -203,3 +203,17 @@ Adding a name and value to your buttons will allow you see which submitter was p
 Only the submitter element name and value will be submitted.
 
 Just like the browser default, if you press enter in your form, the first submit element will be the one that submits the form.
+
+### Development
+
+#### Compiling
+
+I've run into issues compiling this with babel, and moved to swc. Which I also had issues compiling locally.
+
+It does work in the playground though, so it's probably an issue with my node environment. 
+
+I'm not going to fix that right now. So if `npx swc` doesn't work, then manually paste the .swcrc json config here.
+
+https://swc.rs/playground
+
+And then copy and paste over the dist file.
